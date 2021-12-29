@@ -39,17 +39,17 @@ print(list[n])
 if(m==n):
   print('Draw')
 # elif(m==0 && n==0)
-elif(m==0 & n==1):
+elif(m==0 and n==1):
   print('loose')
-elif(m==0 & n==2):
+elif(m==0 and n==2):
   print('win')
-elif(m==1 & n==0):
+elif(m==1 and n==0):
   print('win')
 # elif(m==1 && n==1)
-elif(m==1 & n==2):
+elif(m==1 and n==2):
   print('loose')
-elif(m==2 & n==0):
+elif(m==2 and n==0):
   print('loose')
-elif(m==2 & n==1):
+elif(m==2 and n==1):
   print('win')
 # elif(m==2 && n==2)
