@@ -19,25 +19,24 @@ for i in range (nr_letters):
   lett = random.choice(letters)
   letter = letter + lett
 
-# print(letter)
+
 
 symbol = ""
 for j in range (nr_symbols):
   sym = random.choice(symbols)
   symbol = symbol + sym
 
-# print(symbol)
+
 
 number = ""
 for k in range (nr_numbers):
   num = random.choice(numbers)
   number = number + num 
 
-# print(number)
+
 print('\n')
 print("Your Password is :\t",letter + symbol + number)
 password01 = letter + symbol + number
-# print(password01)
 
 
 #Hard Level - Order of characters randomised:
@@ -48,9 +47,16 @@ for l in range (len(password01)):
   lst = lst + password01[l] + space
 
 
-# password03 = lst.split()
-# print(password03)
-print(lst)
-print(lst.split( ))
+  
+  
+  
+  
+lst = lst.split( )
+lst = list (lst)
+print(type(lst))
 random.shuffle(lst)
-print(lst)
+print(f"{''.join(lst)}")
+# print(lst)
+# print(lst.split( ))
+# random.shuffle(lst)
+# print(lst)
