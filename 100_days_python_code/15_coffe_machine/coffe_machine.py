@@ -56,6 +56,7 @@ def check_resources(choice):  #dudh paani or coffe pure hai ya nahi
     elif (MENU[choice]['ingredients']['coffee'] > resources['coffee']):
         print("Sorry there is not enough coffee")
         return 0
+    return 1
     # print("I m a resouring checking function")
 
 
@@ -65,7 +66,7 @@ def process_coin(choice):     #calculate monetary value of the coins inserted
     d = int (input("Dimes : "))
     n = int (input("Nickel : "))
     p = int (input("Pennies : "))
-    given = q*0.25 + d*0.1 + n*0.05 + p*0.01
+    given = round(q*0.25 + d*0.1 + n*0.05 + p*0.01 , 3)
     # print (given)
     transaction_successful(given)
     # print("I will calculate kya aapne pure paise diye")
@@ -73,13 +74,14 @@ def process_coin(choice):     #calculate monetary value of the coins inserted
 
 def transaction_successful(given):   #pure paise diye ya nahi , agr jaada diye toh offer change
     if given > MENU[choice]['cost'] :
-        change = round (given - MENU[choice]['cost'] , 3)
+        change = given - MENU[choice]['cost']
         print(f"Here is ${change} dollars in change.")
         make_coffee(choice)
         update_report(choice)
       
     elif given == MENU[choice]['cost'] :
         # continue
+        make_coffee(choice)
         update_report(choice)
         pass
 
@@ -98,32 +100,27 @@ off = False
 while (not off):
     choice = input ("What would you like? (espresso/latte/cappuccino):")
     if (choice == 'espresso'):
-        # update(choice)
         if check_resources(choice) == 0:
             continue
         process_coin(choice)
         # print("i will make espresso")
         
     elif (choice == 'latte'):
-        # update(choice)
         if check_resources(choice) == 0:
             continue
         process_coin(choice)
         # print("i will make latte")
 
     elif (choice == 'cappuccino'):
-        # update(choice)
         if check_resources(choice) == 0:
             continue
         process_coin(choice)
         # print("i will make cappuccino")
 
     elif (choice == 'report'):
-        # update(choice)
         display_report()
         # print("i will show you report")
     
     else :
         off = True
      
-        
