@@ -1,5 +1,4 @@
 from turtle import Turtle
-SPEED = [100,200,10,0,20,30,40]
 class Ball(Turtle):
 
     def __init__(self):
