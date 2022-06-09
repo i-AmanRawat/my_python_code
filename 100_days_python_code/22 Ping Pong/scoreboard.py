@@ -1,34 +1,29 @@
 from turtle import Turtle
-class Ball(Turtle):
 
+class ScoreBoard(Turtle):
     def __init__(self):
         super().__init__()
-        self.shape("circle")
         self.color("white")
         self.penup()
-        self.x_move = 10
-        self.y_move = 10
-        self.move_speed = 0.1
+        self.hideturtle()
+        self.l_score= 0
+        self.r_score= 0
+        self.update_score()
 
-    def move(self,m,n):
-        new_xcor= self.xcor() + m*self.x_move
-        new_ycor= self.ycor() + n*self.y_move
-        self.goto(new_xcor, new_ycor)
+    def update_score(self):
+        self.goto(-100, 200)
+        self.write(self.l_score, align="center", font=("courier", 80, "normal" ))
+        self.goto(100, 200)
+        self.write(self.r_score, align="center", font=("courier", 80, "normal"))
 
-    def bounce_y(self):
-        self.y_move*=-1
+    def l_point(self):
+        self.l_score+=1
+        self.clear()
+        self.update_score()
 
-    def bounce_x(self): #collision with paddle
-        self.x_move*=-1
-        self.move_speed*=0.9 #multiplying speed of ball with 0.9 every time it goes on a collision
-
-    def reset_position(self):
-        self.goto(0, 0)
-        self.move_speed= 0.1    #reseting the speed to its original value ie 0.1
-
-    # def random_speed(self):   it doesn't matter how much your speed is at the end there will be sleep line 31
-    #     self.speed(random.choice(SPEED))  instead try to reduce the sleep time
-
-
+    def r_point(self):
+        self.r_score+=1
+        self.clear()
+        self.update_score()
 
 
